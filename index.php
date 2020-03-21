@@ -1,6 +1,6 @@
 <?php include ("db.php");
 
-$result = mysqli_query( $con, "SELECT * FROM datatables_demo " );
+$result = mysqli_query( $con, "SELECT * FROM user_details " );
 
 if (!$result){
     echo "<p>Запрос на выборку данных из базы не прошёл.<br> <strong>Код ошибки:</strong></p>";
@@ -30,16 +30,16 @@ if (mysqli_num_rows($result) > 0){
 <table id="example" class="display" style="width:100%">
     <thead>
     <tr>
+        <th>User name</th>
         <th>First name</th>
         <th>Last name</th>
-        <th>Middle name</th>
     </tr>
     </thead>
     <tfoot>
     <tr>
+        <th>User name</th>
         <th>First name</th>
         <th>Last name</th>
-        <th>Middle name</th>
     </tr>
     </tfoot>
 </table>
@@ -60,9 +60,9 @@ if (mysqli_num_rows($result) > 0){
                 'url':'server_processing.php'
             },
             'columns': [
-                { data: 'firstname' },
-                { data: 'lastname' },
-                { data: 'middlename' }
+                { data: 'username' },
+                { data: 'first_name' },
+                { data: 'last_name' }
             ]
         } );
     } );
